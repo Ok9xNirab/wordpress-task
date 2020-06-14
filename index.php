@@ -72,12 +72,7 @@ add_action('rest_api_init', 'wctb_rest_api');
 // Save Post Meta
 function wctb_post_meta(WP_REST_Request $request)
 {
-    $meta = get_post_meta($request['product_id'], 'wctab_custom_txt', false);
-    if($meta) {
-        update_post_meta($request['product_id'],'wctab_custom_txt', $request["custom_txt"]);
-    } else {
-        add_post_meta($request['product_id'],'wctab_custom_txt', $request["custom_txt"]);
-    }
+    update_post_meta($request['product_id'],'wctab_custom_txt', $request["custom_txt"]);
     return "success";
 }
 
