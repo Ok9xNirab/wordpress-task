@@ -36,7 +36,7 @@
 import axios from "axios";
 export default {
   name: "App",
-  props: ["product_id", "url"],
+  props: ["product_id", "url", "post_url"],
   data() {
     return {
       editor: false,
@@ -70,7 +70,7 @@ export default {
   },
   mounted() {
     axios
-      .post("/wp-json/wctb/v1/get-wctb-post-data", {
+      .post(this.post_url, {
         product_id: this.product_id,
       })
       .then((response) => {

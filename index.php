@@ -44,10 +44,11 @@ function wctab_admin_form()
 {
     global $post;
     $url = get_home_url()."/wp-json/wctb/v1/wctb-post-data";
+    $post_url = get_home_url()."/wp-json/wctb/v1/get-wctb-post-data";
 	?>
 	<div id='wctab_form' class='panel woocommerce_options_panel'>
 		<div id='app'>
-			<tab :product_id='<?php echo $post->ID; ?>' :url='<?php echo json_encode($url); ?>' />
+			<tab :product_id='<?php echo $post->ID; ?>' :url='<?php echo json_encode($url); ?>' :post_url='<?php echo json_encode($post_url); ?>' />
 		</div>
 	</div>
 	<?php
