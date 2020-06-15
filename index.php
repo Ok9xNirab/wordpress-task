@@ -43,11 +43,11 @@ add_filter('woocommerce_product_data_tabs', 'wctb_admin');
 function wctab_admin_form()
 {
     global $post;
-    $meta = get_post_meta( $post->ID, 'wctab_custom_txt', true );
+    $url = get_home_url()."/wp-json/wctb/v1/wctb-post-data";
 	?>
 	<div id='wctab_form' class='panel woocommerce_options_panel'>
 		<div id='app'>
-			<tab :product_id='<?php echo $post->ID; ?>' />
+			<tab :product_id='<?php echo $post->ID; ?>' :url='<?php echo json_encode($url); ?>' />
 		</div>
 	</div>
 	<?php

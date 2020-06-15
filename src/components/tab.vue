@@ -36,7 +36,7 @@
 import axios from "axios";
 export default {
   name: "App",
-  props: ["product_id"],
+  props: ["product_id", "url"],
   data() {
     return {
       editor: false,
@@ -53,7 +53,7 @@ export default {
       } else if (this.editor === true) {
         this.spinner = "spinner is-active";
         axios
-          .post("/wp-json/wctb/v1/wctb-post-data", {
+          .post(this.url, {
             custom_txt: this.custom_txt,
             product_id: this.product_id,
           })
